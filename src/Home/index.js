@@ -67,7 +67,6 @@ const Home = () => {
       'https://apis2.ccbp.in/restaurant-app/restaurant-menu-list-details'
     const apiResponse = await fetch(api)
     const data = await apiResponse.json()
-    console.log(data)
     const updatedData = getUpdatedData(data[0].table_menu_list)
     setResponse(updatedData)
     setActiveCategoryId(updatedData[0].menuCategoryId)

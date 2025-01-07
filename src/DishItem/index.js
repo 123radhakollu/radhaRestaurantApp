@@ -16,7 +16,7 @@ const DishItem = ({
     dishImage,
     dishCalories,
     addonCat,
-    dishAvailbility,
+    dishAvailability,
   } = dishDetails
 
   const onIncreaseQuantity = () => addItemToCart(dishDetails)
@@ -32,7 +32,7 @@ const DishItem = ({
       <button className="button" type="button" onClick={onDecreaseQuantity}>
         -
       </button>
-      <p className="quantity">{getQuantity}</p>
+      <p className="quantity">{getQuantity()}</p>
       <button className="button" type="button" onClick={onIncreaseQuantity}>
         +
       </button>
@@ -52,15 +52,16 @@ const DishItem = ({
           {dishCurrency} {dishPrice}
         </p>
         <p className="dish-description">{dishDescription}</p>
-        {dishAvailbility && renderControllerButton()}
-        {!dishAvailbility && (
-          <p className="not-availbility-text-danger">Not availble</p>
+        {dishAvailability && renderControllerButton()}
+        {!dishAvailability && (
+          <p className="not-availability-text text-danger">Not available</p>
         )}
-        {addonCat.length !==
-          0(<p className="addon-availbility-text">Customizations availble</p>)}
+        {addonCat.length !== 0 && (
+          <p className="addon-availability-text">Customizations available</p>
+        )}
       </div>
 
-      <p className="dish-calories-text-warning">{dishCalories} calories</p>
+      <p className="dish-calories text-warning">{dishCalories} calories</p>
       <img className="dish-image" alt={dishName} src={dishImage} />
     </li>
   )
